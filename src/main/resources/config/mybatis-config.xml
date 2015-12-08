@@ -4,6 +4,10 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
     
 <configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+	</settings>
+	
 	<!--数据源配置 使用mysql数据库 -->
 	<environments default="development">
 		<environment id="development">

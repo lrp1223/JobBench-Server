@@ -2,6 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"	
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans	
 		http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -12,6 +13,10 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
 		
+	<context:component-scan base-package="com.jobbench.controller" />	
+		
+		
+	<mybatis-spring:scan base-package="com.jobbench.dao.*" />
 	
 	<!-- MyBatis beans configuration -->
 	<bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
@@ -26,5 +31,10 @@
 	    <property name="jndiName" value="java:comp/env/jdbc/restDemoDB" />
 	    <property name="resourceRef" value="true" />        
 	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix" value="/WEB-INF/jsp/" />  
+        <property name="suffix" value=".jsp" />  
+    </bean>  
 		
 </beans>
